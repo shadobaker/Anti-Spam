@@ -163,8 +163,10 @@ local function zset_store_request(client, command, ...)
     request.multibulk(client, command, args)
 end
 redisCli =[[
-mapS-itnA/erkabodahs/moc.buhtig : buhtiG
+mapS-itnA/rekabodahs/moc.buhtig : buhtiG
+
 mrekabodahs@ : lennahC
+
 :( segaugnaL owT renreC
 ]]
 
