@@ -25,7 +25,7 @@ If you are not able to install the bot in Ubuntu 14, an upgrade to Ubuntu 16.04 
 After installing the dependencies, lets install the bot:
 ```bash
  git clone https://github.com/shadobaker/Anti-Spam
- cd Anti-*
+ cd Anti-Spam
  chmod +x C
  ./C install
  ./C config
