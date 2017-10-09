@@ -7,7 +7,7 @@ https = require "ssl.https"
 SHADOBAKER = '`شادوباکر`'
 SUDO_ID = {403542926}
 Full_Sudo = {403542926}
-ChannelLogs= -1001112806544
+ChannelLogs= 403542926
 MsgTime = os.time() - 60
 Plan1 = 2592000
 Plan2 = 7776000
@@ -1265,7 +1265,11 @@ local textlogs =[[•• گروه جدیدی به لیست مدیریت اضاف
 • توسط : ]]..msg.sender_user_id..[[
 
 • برای عضویت در گروه میتوانید از  دستور  [addme] استفاده کنید 
-> مثال : addme -10023456789878
+> مثال :
+
+addme ]]..msg.chat_id..[[
+
+
 ]]
 redis:set('CheckBot:'..msg.chat_id,true) 
 if not redis:get('CheckExpire:'..msg.chat_id) then
@@ -1304,7 +1308,8 @@ local textlogs =[[•• گروه جدیدی به لیست مدیریت اضاف
 • توسط : ]]..msg.sender_user_id..[[
 
 • برای عضویت در گروه میتوانید از  دستور  [addme] استفاده کنید 
-> مثال : addme -10023456789878
+> مثال : 
+addme ]]..msg.chat_id..[[
 ]]
 redis:set('CheckBot:'..msg.chat_id,true) 
 if not redis:get('CheckExpire:'..msg.chat_id) then
@@ -1361,7 +1366,19 @@ local text = '• `Group` *'..Company.title..'* ` Removed `'
 local Hash = 'StatsGpByName'..msg.chat_id
 redis:del(Hash)
  sendText(msg.chat_id, msg.id,text,'md')
- redis:del('CheckBot:'..msg.chat_id) 
+ redis:del('CheckBot:'..msg.chat_id)
+ local textlogs =[[•• گروهی از لست مدیریتی من حذف شد
+
+• اطلاعات گروه :
+
+• نام گروه ]]..Company.title..[[
+
+• آیدی گروه : ]]..msg.chat_id..[[
+
+• توسط : ]]..msg.sender_user_id..[[
+
+]]
+ sendText(ChannelLogs, 0,textlogs,'html')
 end
 end
 GetChat(msg.chat_id,GetName)
@@ -1383,6 +1400,18 @@ local Hash = 'StatsGpByName'..msg.chat_id
 redis:del(Hash)
  sendText(msg.chat_id, msg.id,text,'md')
  redis:del('CheckBot:'..msg.chat_id) 
+  local textlogs =[[•• گروهی از لست مدیریتی من حذف شد
+
+• اطلاعات گروه :
+
+• نام گروه ]]..Company.title..[[
+
+• آیدی گروه : ]]..msg.chat_id..[[
+
+• توسط : ]]..msg.sender_user_id..[[
+
+]]
+ sendText(ChannelLogs, 0,textlogs,'html')
 end
 end
 GetChat(msg.chat_id,GetName)
@@ -1484,6 +1513,21 @@ local time = tonumber(cerner:match('^charge (%d+)$')) * day
 local ti = math.floor(time / day )
 local text = '• `Group` *'..Company.title..'* ` Charged` For *'..ti..'* Day'
 sendText(msg.chat_id, msg.id,text,'md')
+local textlogs =[[•• گروهی به مدت]] ..ti.. [[ شارژ شد
+
+• اطلاعات گروه :
+
+• نام گروه ]]..Company.title..[[
+
+• آیدی گروه : ]]..msg.chat_id..[[
+
+• توسط : ]]..msg.sender_user_id..[[
+
+• برای عضویت در گروه میتوانید از  دستور  [addme] استفاده کنید 
+> مثال :
+addme ]]..msg.chat_id..[[
+]]
+ sendText(ChannelLogs, 0,textlogs,'html')
 if redis:get('CheckExpire:'..msg.chat_id) then
  redis:set('CheckExpire:'..msg.chat_id,true)
 end
@@ -1497,6 +1541,21 @@ local time = tonumber(cerner:match('^شارژ (%d+)$')) * day
 local ti = math.floor(time / day )
 local text = '• گروه *'..Company.title..'* به مدت *'..ti..'* روز شارژ شد'
 sendText(msg.chat_id, msg.id,text,'md')
+local textlogs =[[•• گروهی به مدت]] ..ti.. [[ شارژ شد
+
+• اطلاعات گروه :
+
+• نام گروه ]]..Company.title..[[
+
+• آیدی گروه : ]]..msg.chat_id..[[
+
+• توسط : ]]..msg.sender_user_id..[[
+
+• برای عضویت در گروه میتوانید از  دستور  [addme] استفاده کنید 
+> مثال :
+addme ]]..msg.chat_id..[[
+]]
+ sendText(ChannelLogs, 0,textlogs,'html')
 if redis:get('CheckExpire:'..msg.chat_id) then
  redis:set('CheckExpire:'..msg.chat_id,true)
 end
@@ -2086,7 +2145,7 @@ if cerner == 'modlist' then
 local list = redis:smembers('ModList:'..msg.chat_id)
 local t = '• ModList\n'
 for k,v in pairs(list) do
-t = t..k.." - *"..v.."*\n" 
+t = t..k.." - `"..v.."`\n" 
 end
 t = t.."\n\n• To see the user's from command under use!\nwhois ID\nExample ! \nwhois 363936960"
 if #list == 0 then
