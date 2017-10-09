@@ -609,7 +609,7 @@ if status == "muteuser" then
 if is_MuteUser(msg.chat_id,msg.sender_user_id) then
  else
 sendText(msg.chat_id, msg.id,'*User*  : `'..(msg.sender_user_id or 021)..'`  *has been* _Muted_ *for flooding*' ,'md')
-mute(msg.chat_id,msg.sender_user_id or 021,'Restricted',   {0, 0, 0, 0, 0,0})
+mute(msg.chat_id,msg.sender_user_id or 021,'Restricted',   {1, 0, 0, 0, 0,0})
 redis:sadd('MuteList:'..msg.chat_id,msg.sender_user_id or 021)
 end
 end
