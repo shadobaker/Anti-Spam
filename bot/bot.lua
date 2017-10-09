@@ -3688,9 +3688,9 @@ end
 ---------------------------------------------------------
 if cerner == 'خوش امد فعال' then
 if redis:get('Welcome:'..msg.chat_id) == 'enable' then
-sendText(msg.chat_id, msg.id,'• *خوش امد گویی از قبل فعال بود\n\n' ,'md')
+sendText(msg.chat_id, msg.id,'• *خوش امد گویی از قبل فعال بود*\n\n' ,'md')
 else
-sendText(msg.chat_id, msg.id,'• *خوش امد گویی فعال شد\n\n' ,'md')
+sendText(msg.chat_id, msg.id,'• *خوش امد گویی فعال شد*\n\n' ,'md')
 redis:del('Welcome:'..msg.chat_id,'disable')
 redis:set('Welcome:'..msg.chat_id,'enable')
 
@@ -3698,11 +3698,11 @@ end
 end
 if cerner == 'خوش امد غیرفعال' then
 if redis:get('Welcome:'..msg.chat_id) then
-sendText(msg.chat_id, msg.id,'• *خوش امد گویی غیرفعال شد\n\n' ,'md')
+sendText(msg.chat_id, msg.id,'• *خوش امد گویی غیرفعال شد*\n\n' ,'md')
 redis:set('Welcome:'..msg.chat_id,'disable')
 redis:del('Welcome:'..msg.chat_id,'enable')
 else
-sendText(msg.chat_id, msg.id,'• *خوش امد گویی غیرفعال بود\n\n' ,'md')
+sendText(msg.chat_id, msg.id,'• *خوش امد گویی غیرفعال بود*\n\n' ,'md')
 end
 end
 ---------------------------------------------------------
