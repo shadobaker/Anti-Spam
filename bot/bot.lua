@@ -2683,16 +2683,13 @@ redis:set("Flood:Status:"..msg.chat_id,'muteuser')
 sendText(msg.chat_id, msg.id, '*Flood mode is set to* _Muteuser_', 'md')
 end
 end
-if cerner1 and cerner1:match('^وضعیت پیام رگباری (.*)$') then
-local status = {string.match(cerner, "^وضعیت پیام رگباری (.*)$")}
-if status[2] == 'اخراج' then
+if cerner1 and cerner1:match('^وضعیت پیام رگباری اخراج$') then
 redis:set("Flood:Status:"..msg.chat_id,'kickuser') 
-sendText(msg.chat_id, msg.id, '*وضعیت پیام رگباری بر روی اخراج قرار گرفت', 'md')
+sendText(msg.chat_id, msg.id, 'وضعیت پیام رگباری بر روی اخراج قرار گرفت', 'md')
 end
-if status[2] == 'سکوت' then
+if cerner1 and cerner1:match('^وضعیت پیام رگباری سکوت$') then
 redis:set("Flood:Status:"..msg.chat_id,'muteuser') 
-sendText(msg.chat_id, msg.id, '*وضعیت پیام رگباری بر روی سکوت قرار گرفته', 'md')
-end
+sendText(msg.chat_id, msg.id, 'وضعیت پیام رگباری بر روی سکوت قرار گرفته', 'md')
 end
 if cerner == 'muteuser' then
 local function Restricted(CerNer,Company)
