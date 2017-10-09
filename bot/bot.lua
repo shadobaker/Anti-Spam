@@ -6014,7 +6014,7 @@ if (data._ == "updateNewMessage") or (data._ == "updateNewChannelMessage") then
 showedit(data.message,data)
  local msg = data.message
 print(msg)
-if msg.content._ == "messageText"  and redis:get('MuteAll:'..msg.chat_id) and not is_Mod(msg) then
+if (msg.content._ == "messageVideo" or msg.content._ == "messageText" or msg.content._ == "messageSticker" or msg.content._ == "messageChatAddMembers" or msg.content._ == "messageChatJoinByLink" or msg.content._ == "messageDocument"  or msg.content._ == "messageAudio" or msg.content._ == "messageVoice"  or msg.content._ == "messageLocation" or msg.content._ == "messageAnimation") and redis:get('MuteAll:'..msg.chat_id) and not is_Mod(msg) then
 print  '                      Ok                   '
 redis:sadd('Mutes:'..msg.chat_id,msg.sender_user_id)
 deleteMessages(msg.chat_id, {[0] = msg.id})
