@@ -3381,7 +3381,7 @@ sendText(msg.chat_id, msg.id, '• ('..limit..') Msg Has Been Deleted', 'md')
 end
 end
 if cerner and cerner:match('^پاکسازی (%d+)$') then
-local limit = tonumber(cerner:match('^rmsg (%d+)$'))
+local limit = tonumber(cerner:match('^پاکسازی (%d+)$'))
 if limit > 100 then
 sendText(msg.chat_id, msg.id, '*عددی بین * [`1-100`] را انتخاب کنید', 'md')
 else
