@@ -35,13 +35,13 @@ After installing the dependencies, lets install the bot:
  ./C start
 ```
 
-[SHADOBAKER](https://github.com/shadobaker)
+[SHADOBAKER](https://github.com/shadobaker/Anti-Spam)
 
 SHADOBAKER Channels:
 --------------------
-[SHADOBAKER](https://github.com/shadobaker/Anti-Spam)
+[SHADOBAKER](https://t.me/shadobakerm)
 
 -------------------
-More information [SHADOBAKER](https://t.me/shadobakerm)
+More information [SHADOBAKER](https://t.me/mmd_mokhradi_fuck_all)
 
 
