@@ -2297,7 +2297,7 @@ redis:del('MuteAll:'..msg.chat_id)
 local mutes =  redis:smembers('Mutes:'..msg.chat_id)
 for k,v in pairs(mutes) do
 redis:srem('MuteList:'..msg.chat_id,v)
-mute(msg.chat_id,v,'Restricted',   {1, 0, 1, 0, 0,0})
+mute(msg.chat_id,v,'Restricted',   {1, 2, 3, 4, 5,6})
 end
 sendText(msg.chat_id, msg.id,'Lock All Has Been Disabled' ,'md')
 end
@@ -2306,7 +2306,7 @@ redis:del('MuteAll:'..msg.chat_id)
 local mutes =  redis:smembers('Mutes:'..msg.chat_id)
 for k,v in pairs(mutes) do
 redis:srem('MuteList:'..msg.chat_id,v)
-mute(msg.chat_id,v,'Restricted',   {1, 0, 1, 0, 0,0})
+mute(msg.chat_id,v,'Restricted',   {1, 2, 3, 4, 5,6})
 end
 sendText(msg.chat_id, msg.id,'قفل گروه غیرفعال شد' ,'md')
 end
