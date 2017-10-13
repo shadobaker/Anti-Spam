@@ -3301,7 +3301,7 @@ if tonumber(num) < 2 then
 sendText(msg.chat_id, msg.id, '• لطفا عددی بزرگتر از 2 انتخاب کنید','md')
 else
 redis:set('Flood:Max:'..msg.chat_id,num)
-sendText(msg.chat_id, msg.id, '• `حساسیت پیام رگباری تنظیم شد بر روی *'..num..'*', 'md')
+sendText(msg.chat_id, msg.id, '• حساسیت پیام رگباری تنظیم شد بر روی *'..num..'*', 'md')
 end
 end
 if cerner and cerner:match('^warnmax (%d+)') then
@@ -3319,7 +3319,7 @@ if tonumber(num) < 2 then
 sendText(msg.chat_id, msg.id, '• لطفا عددی بزرگتر از 2 انتخاب کنید','md')
 else
 redis:set('Warn:Max:'..msg.chat_id,num)
-sendText(msg.chat_id, msg.id, '• `حداکثر اخطار تنظیم شد بر روی *'..num..'*', 'md')
+sendText(msg.chat_id, msg.id, '• حداکثر اخطار تنظیم شد بر روی *'..num..'*', 'md')
 end
 end
 if cerner and cerner:match('^setspam (%d+)') then
@@ -3338,13 +3338,13 @@ end
 if cerner and cerner:match('^تنظیم اسپم (%d+)') then
 local num = cerner:match('^تنظیم اسپم (%d+)')
 if tonumber(num) < 40 then
-sendText(msg.chat_id, msg.id, '• `لطفا عددی بزرگتر از 40 انتخاب کنید','md')
+sendText(msg.chat_id, msg.id, '• لطفا عددی بزرگتر از 40 انتخاب کنید','md')
 else
 if tonumber(num) > 4096 then
-sendText(msg.chat_id, msg.id, '• `لطفا عددی کوچیکتر از 4096 انتخاب کنید ','md')
+sendText(msg.chat_id, msg.id, '• لطفا عددی کوچیکتر از 4096 انتخاب کنید ','md')
 else
 redis:set('NUM_CH_MAX:'..msg.chat_id,num)
-sendText(msg.chat_id, msg.id, '• حساسیت اسپم تنظیم شد بر روی ` *'..num..'*', 'md')
+sendText(msg.chat_id, msg.id, '• حساسیت اسپم تنظیم شد بر روی  *'..num..'*', 'md')
 end
 end
 end
@@ -3363,7 +3363,7 @@ if tonumber(num) < 1 then
 sendText(msg.chat_id, msg.id, '• لطفا عددی بزرگتر از 1 انتخاب کنید','md')
 else
 redis:set('Flood:Time:'..msg.chat_id,num)
-sendText(msg.chat_id, msg.id, '• زمان پیام رگباری تنظیم شد بر روی'..num..'*', 'md')
+sendText(msg.chat_id, msg.id, '• زمان پیام رگباری تنظیم شد بر روی*'..num..'*', 'md')
 end
 end
 if cerner and cerner:match('^rmsg (%d+)$') then
